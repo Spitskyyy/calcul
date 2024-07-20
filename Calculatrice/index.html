@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+<button id="button">add</button>
+<button id="button2">remove</button>
+<button id="button3">reset</button>
+<p>Nombres de clics: <span id="compteur">0</span></p>
+
+
+
+const button = document.getElementById("button")
+const button2 = document.getElementById("button2")
+const span = document.getElementById("compteur")
+
+
+let compteur = 0;
+
+button.addEventListener('click', function() {
+    compteur++;
+
+    span.textContent = compteur;
+});
+
+
+button2.addEventListener('click', function() {
+    compteur--;
+
+    span.textContent = compteur;
+});
+
+button3.addEventListener('click', function() {
+    compteur = 0
+
+    span.textContent = compteur;
+});
+
+
+
+-->
+
+    <div id="calculator">
+      <input id="display" placeholder="Calculate!" readonly />
+      <div id="keys">
+        <button
+          id="button-calculate"
+          onclick="appendToDisplay('+')"
+          class="operator-btn"
+        >
+          +
+        </button>
+        <button id="button-calculate" onclick="appendToDisplay('7')">7</button>
+        <button id="button-calculate" onclick="appendToDisplay('8')">8</button>
+        <button id="button-calculate" onclick="appendToDisplay('9')">9</button>
+        <button
+          id="button-calculate"
+          onclick="appendToDisplay('-')"
+          class="operator-btn"
+        >
+          -
+        </button>
+        <button id="button-calculate" onclick="appendToDisplay('4')">4</button>
+        <button id="button-calculate" onclick="appendToDisplay('5')">5</button>
+        <button id="button-calculate" onclick="appendToDisplay('6')">6</button>
+        <button
+          id="button-calculate"
+          onclick="appendToDisplay('*')"
+          class="operator-btn"
+        >
+          *
+        </button>
+        <button id="button-calculate" onclick="appendToDisplay('1')">1</button>
+        <button id="button-calculate" onclick="appendToDisplay('2')">2</button>
+        <button id="button-calculate" onclick="appendToDisplay('3')">3</button>
+        <button
+          id="button-calculate"
+          onclick="appendToDisplay('/')"
+          class="operator-btn"
+        >
+          /
+        </button>
+        <button id="button-calculate" onclick="appendToDisplay('0')">0</button>
+        <button id="button-calculate" onclick="appendToDisplay('.')">.</button>
+        <button id="button-calculate" onclick="calculate()">=</button>
+        <button
+          id="button-calculate"
+          onclick="clearDisplay()"
+          class="operator-btn"
+        >
+          C
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const display = document.getElementById("display");
+      let derniereCalculation = false;
+
+      function appendToDisplay(input) {
+        if (derniereCalculation && !isOperator(input)) {
+          display.value = "";
+          
+        } 
+        
+        derniereCalculation = false;
+        display.value += input;
+      }
+
+      function clearDisplay() {
+        display.value = "";
+      }
+
+      function calculate() {
+        try {
+          display.value = eval(display.value);
+          derniereCalculation = true;
+        } catch (error) {
+          display.value = "Error";
+        }
+      }
+
+      
+      function isOperator(input){
+          return ['+', '-', '*', '/','.','='].includes(input)
+      }
+    
+    </script>
+  </body>
+</html>
